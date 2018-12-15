@@ -27,9 +27,9 @@
 
     UTIL.imsicard = function (imsi, card, callback) {
         // imsi登录
-        UTIL.loadiframe('http://h5.nty.tv189.com/api/portal/user/tysx-userlogin?imsiid='+imsi, function () {
+        UTIL.loadiframe('http://h5.nty.tv189.com/api/portal/user/tysx-userlogin?appid=115010310149&channelId=03510611&imsiid='+imsi, function () {
             // 激活卡
-            UTIL.loadiframe('http://h5.nty.tv189.com/my/api/cardactivate?carNum='+card, function () {
+            UTIL.loadiframe('http://h5.nty.tv189.com/my/api/cardactivate?appid=115010310149&channelId=03510611&carNum='+card, function () {
                 // 注销
                 UTIL.loadiframe('http://h5.nty.tv189.com/api/portal/user/logout', function () {
                     if(callback){
@@ -51,7 +51,7 @@ $(function () {
             return;
         }
         if(accList.length === 0){
-            alert('已经全部激活完了');
+            alert('已经全部处理完了');
             return;
         }
         var sarr = accList.shift().split(',');
